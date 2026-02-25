@@ -1,36 +1,5 @@
 import 'package:flutter/material.dart';
-
-/// Album model
-/// Represents a single album with its metadata
-class Album {
-  final String name;
-  final String artist;
-  final Color color;
-  final int releaseYear;
-  final String genre;
-  final bool isFavorite;
-
-  const Album({
-    required this.name,
-    required this.artist,
-    required this.color,
-    required this.releaseYear,
-    required this.genre,
-    this.isFavorite = false,
-  });
-
-  /// Create a copy of album with updated favorite status
-  Album copyWith({bool? isFavorite}) {
-    return Album(
-      name: name,
-      artist: artist,
-      color: color,
-      releaseYear: releaseYear,
-      genre: genre,
-      isFavorite: isFavorite ?? this.isFavorite,
-    );
-  }
-}
+import '../models/album.dart';
 
 /// Afrobeats albums database
 /// Contains popular Afrobeats albums with their artists and theme colors
