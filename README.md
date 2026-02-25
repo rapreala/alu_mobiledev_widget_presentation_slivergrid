@@ -8,7 +8,7 @@ SliverGrid creates a scrollable 2D grid of widgets within a CustomScrollView, pe
 ## How to Run
 ```bash
 # Clone or download this repository
-git clone <your-repo-url>
+git clone this repo
 
 # Navigate to project directory
 cd sliver_grid_demo
