@@ -12,6 +12,7 @@ class AlbumCard extends StatelessWidget {
   final bool isFavorite;
   final VoidCallback onTap;
   final VoidCallback onFavoriteToggle;
+  final VoidCallback? onLongPress;
 
   const AlbumCard({
     super.key,
@@ -23,12 +24,14 @@ class AlbumCard extends StatelessWidget {
     required this.isFavorite,
     required this.onTap,
     required this.onFavoriteToggle,
+    this.onLongPress,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
+      onLongPress: onLongPress,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -42,10 +45,7 @@ class AlbumCard extends StatelessWidget {
                     gradient: LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
-                      colors: [
-                        color,
-                        color.withValues(alpha: 0.6),
-                      ],
+                      colors: [color, color.withValues(alpha: 0.6)],
                     ),
                     borderRadius: BorderRadius.circular(8),
                     boxShadow: [
@@ -64,7 +64,7 @@ class AlbumCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                
+
                 // Favorite button (top-right corner)
                 Positioned(
                   top: 8,
@@ -85,7 +85,7 @@ class AlbumCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                
+
                 // Genre tag (bottom-left corner)
                 Positioned(
                   bottom: 8,
@@ -113,7 +113,7 @@ class AlbumCard extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 12),
-          
+
           // Album name
           Text(
             albumName,
@@ -126,7 +126,7 @@ class AlbumCard extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
           ),
           const SizedBox(height: 4),
-          
+
           // Artist name and year
           Row(
             children: [
@@ -143,10 +143,7 @@ class AlbumCard extends StatelessWidget {
               ),
               Text(
                 '• $releaseYear',
-                style: TextStyle(
-                  color: AppColors.secondaryText,
-                  fontSize: 12,
-                ),
+                style: TextStyle(color: AppColors.secondaryText, fontSize: 12),
               ),
             ],
           ),
